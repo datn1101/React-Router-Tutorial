@@ -5,13 +5,17 @@ import {
   } from "react-router-dom";
   import { getContacts } from "../contacts";
 
-  export default function Root() {
+export async function loader() {
+  const contacts = await getContacts();
+  return { contacts };
+}
+
+export default function Root() {
     const { contacts } = useLoaderData();
     return (
       <>
         <div id="sidebar">
           <h1>React Router Contacts</h1>
-  
           <div>
             <form id="search-form" role="search">
               <input
