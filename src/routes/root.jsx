@@ -32,6 +32,7 @@ export default function Root() {
     new URLSearchParams(navigation.location.search).has(
       "q"
     );
+
     useEffect(() => {
       document.getElementById("q").value = q;
     }, [q]);
@@ -51,11 +52,11 @@ export default function Root() {
                 defaultValue={q}
                 onChange={(event) => {
                   const isFirstSearch = q == null;
-                  submit(event.currentTarget.form, {
-                    replace: !isFirstSearch,
-                  });
-                }}
-              />
+                submit(event.currentTarget.form, {
+                  replace: !isFirstSearch,
+                });
+              }}
+            />
               <div
                 id="search-spinner"
                 aria-hidden
